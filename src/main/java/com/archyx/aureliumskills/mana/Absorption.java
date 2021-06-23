@@ -41,7 +41,7 @@ public class Absorption implements ManaAbility {
             playerData.getAbilityData(MAbility.ABSORPTION).setData("activated", true); // Register as absorption activated
             // Play sound
             if (XMaterial.isNewVersion()) {
-                player.playSound(player.getLocation(), Sound.BLOCK_BEACON_POWER_SELECT, 1, 1);
+                player.playSound(player.getLocation(), Sound.valueOf("BLOCK_BEACON_POWER_SELECT"), 1, 1);
             } else {
                 player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
             }

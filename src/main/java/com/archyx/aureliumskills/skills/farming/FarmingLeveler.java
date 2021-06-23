@@ -14,7 +14,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
-import org.bukkit.block.data.type.CaveVinesPlant;
+//import org.bukkit.block.data.type.CaveVinesPlant;//andan
 import org.bukkit.block.data.type.SeaPickle;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -85,22 +85,24 @@ public class FarmingLeveler extends SkillLeveler implements Listener{
 				multiplier = numBroken;
 			}
 			// Handle sea pickles
-			if (source == FarmingSource.SEA_PICKLE) {
-				if (block.getBlockData() instanceof SeaPickle) {
-					SeaPickle seaPickle = (SeaPickle) block.getBlockData();
-					multiplier = seaPickle.getPickles();
-				}
-			}
+			//andan
+//			if (source == FarmingSource.SEA_PICKLE) {
+//				if (block.getBlockData() instanceof SeaPickle) {
+//					SeaPickle seaPickle = (SeaPickle) block.getBlockData();
+//					multiplier = seaPickle.getPickles();
+//				}
+//			}
 			// Handle sweet berry bush
 			if (source == FarmingSource.SWEET_BERRY_BUSH) {
 				multiplier = BlockUtil.getGrowthStage(block) - 1;
 			}
 			// Handle glow berries
-			if (source == FarmingSource.GLOW_BERRIES) {
-				if (!(block.getBlockData() instanceof CaveVinesPlant)) return;
-				CaveVinesPlant caveVinesPlant = (CaveVinesPlant) block.getBlockData();
-				if (!caveVinesPlant.isBerries()) return; // Only give xp if has berries
-			}
+			//andan
+//			if (source == FarmingSource.GLOW_BERRIES) {
+//				if (!(block.getBlockData() instanceof CaveVinesPlant)) return;
+//				CaveVinesPlant caveVinesPlant = (CaveVinesPlant) block.getBlockData();
+//				if (!caveVinesPlant.isBerries()) return; // Only give xp if has berries
+//			}
 			// Give XP
 			giveXp(player, getXp(player, source) * multiplier, source, block);
 			break;
@@ -156,13 +158,14 @@ public class FarmingLeveler extends SkillLeveler implements Listener{
 				}.runTaskLater(plugin, 1L);
 			}
 			// Handle glow berries
-			if (source == FarmingSource.GLOW_BERRIES) {
-				if (!(block.getBlockData() instanceof CaveVinesPlant)) return;
-				CaveVinesPlant caveVinesPlant = (CaveVinesPlant) block.getBlockData();
-				if (caveVinesPlant.isBerries()) {
-					giveXp(player, getXp(player, source), source, block);
-				}
-			}
+			//andan
+//			if (source == FarmingSource.GLOW_BERRIES) {
+//				if (!(block.getBlockData() instanceof CaveVinesPlant)) return;
+//				CaveVinesPlant caveVinesPlant = (CaveVinesPlant) block.getBlockData();
+//				if (caveVinesPlant.isBerries()) {
+//					giveXp(player, getXp(player, source), source, block);
+//				}
+//			}
 			break;
 		}
 	}

@@ -7,7 +7,7 @@ public class VersionUtils {
 
     public static boolean isPigman(EntityType type) {
         if (XMaterial.getVersion() == 16) {
-            return type.equals(EntityType.ZOMBIFIED_PIGLIN);
+            return type.equals(EntityType.valueOf("ZOMBIFIED_PIGLIN"));
         }
         else {
             return type.name().equals("PIG_ZOMBIE");

@@ -46,7 +46,7 @@ public class SharpHook implements ManaAbility {
             plugin.getAbilityManager().sendMessage(player, TextUtil.replace(Lang.getMessage(ManaAbilityMessage.SHARP_HOOK_USE, locale), "{mana}", NumberUtil.format0(manaConsumed)));
             if (plugin.getManaAbilityManager().getOptionAsBooleanElseTrue(MAbility.SHARP_HOOK, "enable_sound")) {
                 if (XMaterial.isNewVersion()) {
-                    player.playSound(player.getLocation(), Sound.ENTITY_FISHING_BOBBER_RETRIEVE, 1f, 1.5f);
+                    player.playSound(player.getLocation(), Sound.valueOf("ENTITY_FISHING_BOBBER_RETRIEVE"), 1f, 1.5f);
                 } else {
                     player.playSound(player.getLocation(), "entity.bobber.retrieve", 1f, 1.5f);
                 }

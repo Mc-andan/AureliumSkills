@@ -15,10 +15,11 @@ public class BlockUtil {
     @SuppressWarnings("deprecation")
     public static boolean isFullyGrown(Block block) {
         if (XMaterial.isNewVersion()) {
-            if (block.getBlockData() instanceof Ageable) {
-                Ageable crop = (Ageable) block.getBlockData();
-                return crop.getMaximumAge() == crop.getAge();
-            }
+            //andan
+//            if (block.getBlockData() instanceof Ageable) {
+//                Ageable crop = (Ageable) block.getBlockData();
+//                return crop.getMaximumAge() == crop.getAge();
+//            }
         }
         else if (block.getState().getData() instanceof Crops) {
             Crops crops = (Crops) block.getState().getData();
@@ -37,10 +38,11 @@ public class BlockUtil {
 
     public static int getGrowthStage(Block block) {
         if (XMaterial.isNewVersion()) {
-            if (block.getBlockData() instanceof Ageable) {
-                Ageable crop = (Ageable) block.getBlockData();
-                return crop.getAge();
-            }
+//            //andan
+//            if (block.getBlockData() instanceof Ageable) {
+//                Ageable crop = (Ageable) block.getBlockData();
+//                return crop.getAge();
+//            }
         }
         return 0;
     }

@@ -65,7 +65,7 @@ public class MiningAbilities extends AbilityProvider implements Listener {
 									return;
 								}
 								if (VersionUtils.isAtLeastVersion(17)) {
-									if (mat == Material.IRON_ORE || mat == Material.GOLD_ORE || mat == Material.COPPER_ORE) {
+									if (mat == Material.IRON_ORE || mat == Material.GOLD_ORE ) {//andan COPPER_ORE
 										return;
 									}
 								}

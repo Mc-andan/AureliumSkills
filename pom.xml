@@ -65,6 +65,12 @@
         </plugins>
     </build>
     <repositories>
+
+        <repository>
+            <id>nexus</id>
+            <name>releases</name>
+            <url>http://lnexus.bjd-mc.com:8081/repository/maven-public/</url>
+        </repository>
         <repository>
             <id>skullcreator-repo</id>
             <url>https://github.com/deanveloper/SkullCreator/raw/mvn-repo</url>
@@ -109,8 +115,9 @@
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.17-R0.1-SNAPSHOT</version>
+            <artifactId>Spigot</artifactId>
+            <version>1.12.2</version>
+            <classifier>SNAPSHOT</classifier>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -138,7 +138,9 @@ public class HealingAbilities extends AbilityProvider implements Listener {
 
     private double getAbsorptionAmount(Player player) {
         if (VersionUtils.isAtLeastVersion(14)) {
-            return player.getAbsorptionAmount();
+            //andan
+            return 0.0;
+//            return player.getAbsorptionAmount();
         } else {
             if (entityLivingClass == null) {
                 entityLivingClass = ReflectionUtils.getNMSClass("EntityLiving");

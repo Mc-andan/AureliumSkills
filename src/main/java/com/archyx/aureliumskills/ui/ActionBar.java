@@ -348,16 +348,17 @@ public class ActionBar implements Listener {
 				Location center;
 				Block other = block;
 				if (XMaterial.isNewVersion()) {
-					if (block.getBlockData() instanceof Bed) {
-						Bed bed = (Bed) block.getBlockData();
-						// Find the other bed block
-						if (bed.getPart() == Bed.Part.FOOT) {
-							other = block.getRelative(bed.getFacing());
-						} else {
-							other = block.getRelative(bed.getFacing().getOppositeFace());
-						}
-
-					}
+					//andan
+//					if (block.getBlockData() instanceof Bed) {
+//						Bed bed = (Bed) block.getBlockData();
+//						// Find the other bed block
+//						if (bed.getPart() == Bed.Part.FOOT) {
+//							other = block.getRelative(bed.getFacing());
+//						} else {
+//							other = block.getRelative(bed.getFacing().getOppositeFace());
+//						}
+//
+//					}
 				} else {
 					if (block.getState().getData() instanceof org.bukkit.material.Bed) {
 						org.bukkit.material.Bed bed = (org.bukkit.material.Bed) block.getState().getData();
@@ -423,12 +424,13 @@ public class ActionBar implements Listener {
 					if (item.getType().name().contains("MUSIC_DISC") || item.getType().name().contains("RECORD")) {
 						boolean isPlace = false;
 						if (XMaterial.isNewVersion()) {
-							if (block.getBlockData() instanceof Jukebox) {
-								Jukebox jukebox = (Jukebox) block.getBlockData();
-								if (!jukebox.hasRecord()) {
-									isPlace = true;
-								}
-							}
+							//andan
+//							if (block.getBlockData() instanceof Jukebox) {
+//								Jukebox jukebox = (Jukebox) block.getBlockData();
+//								if (!jukebox.hasRecord()) {
+//									isPlace = true;
+//								}
+//							}
 						} else {
 							if (block.getState() instanceof org.bukkit.block.Jukebox) {
 								org.bukkit.block.Jukebox jukebox = (org.bukkit.block.Jukebox) block.getState();

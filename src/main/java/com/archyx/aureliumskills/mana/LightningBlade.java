@@ -59,7 +59,7 @@ public class LightningBlade implements ManaAbility {
         sorceryLeveler.level(player, manaConsumed); // Level sorcery
         // Play sound and send message
         if (XMaterial.isNewVersion()) {
-            player.playSound(player.getLocation(), Sound.ENTITY_ILLUSIONER_PREPARE_MIRROR, 0.5f, 1);
+            player.playSound(player.getLocation(), Sound.valueOf("ENTITY_ILLUSIONER_PREPARE_MIRROR"), 0.5f, 1);
         } else {
             player.playSound(player.getLocation(), "entity.illusion_illager.prepare_mirror", 0.5f, 1);
         }

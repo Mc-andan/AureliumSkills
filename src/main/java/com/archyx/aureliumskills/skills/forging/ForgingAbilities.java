@@ -54,50 +54,51 @@ public class ForgingAbilities extends AbilityProvider implements Listener {
             // Only allow right and left clicks if inventory full
             if (click != ClickType.LEFT && click != ClickType.RIGHT && ItemUtils.isInventoryFull(player)) return;
             if (event.getResult() != Event.Result.ALLOW) return; // Make sure the click was successful
-            if (event.getClickedInventory().getType() == InventoryType.GRINDSTONE) {
-                if (event.getSlotType() == InventoryType.SlotType.RESULT) {
-                    PlayerData playerData = plugin.getPlayerManager().getPlayerData(player);
-                    if (playerData == null) return;
-                    if (playerData.getAbilityLevel(Ability.DISENCHANTER) == 0) return;
-                    Location location = inventory.getLocation();
-                    if (location == null) return;
-                    ItemStack first = inventory.getItem(0);
-                    ItemStack second = inventory.getItem(1);
-                    Set<EnchantmentValue> enchants = new HashSet<>();
-                    // Add enchants to disenchant
-                    if (first != null) {
-                        for (Map.Entry<Enchantment, Integer> entry : first.getEnchantments().entrySet()) {
-                            if (!entry.getKey().equals(Enchantment.BINDING_CURSE) && !entry.getKey().equals(Enchantment.VANISHING_CURSE)) {
-                                enchants.add(new EnchantmentValue(entry.getKey(), entry.getValue()));
-                            }
-                        }
-                    }
-                    if (second != null) {
-                        for (Map.Entry<Enchantment, Integer> entry : second.getEnchantments().entrySet()) {
-                            if (!entry.getKey().equals(Enchantment.BINDING_CURSE) && !entry.getKey().equals(Enchantment.VANISHING_CURSE)) {
-                                enchants.add(new EnchantmentValue(entry.getKey(), entry.getValue()));
-                            }
-                        }
-                    }
-                    if (enchants.size() == 0) return;
-                    // Calculate the sum
-                    try {
-                        int sum = 0;
-                        for (EnchantmentValue value : enchants) {
-                            String enchantName = value.getEnchantment().getKey().getKey().toUpperCase(Locale.ENGLISH);
-                            if (containsEnchant(enchantName)) {
-                                sum += GrindstoneEnchant.valueOf(enchantName).getLevel(value.getLevel());
-                            }
-                        }
-                        int average = (sum + (int) Math.ceil(((double) sum) / 2)) / 2; // Get the average experience that would drop
-                        int added = (int) Math.round(average * (getValue(Ability.DISENCHANTER, playerData) / 100));
-                        World world = location.getWorld();
-                        if (world != null) {
-                            world.spawn(location, ExperienceOrb.class).setExperience(added);
-                        }
-                    } catch (IllegalArgumentException ignored) {}
-                }
-            }
+            return;//andan
+//            if (event.getClickedInventory().getType() == InventoryType.GRINDSTONE) {
+//                if (event.getSlotType() == InventoryType.SlotType.RESULT) {
+//                    PlayerData playerData = plugin.getPlayerManager().getPlayerData(player);
+//                    if (playerData == null) return;
+//                    if (playerData.getAbilityLevel(Ability.DISENCHANTER) == 0) return;
+//                    Location location = inventory.getLocation();
+//                    if (location == null) return;
+//                    ItemStack first = inventory.getItem(0);
+//                    ItemStack second = inventory.getItem(1);
+//                    Set<EnchantmentValue> enchants = new HashSet<>();
+//                    // Add enchants to disenchant
+//                    if (first != null) {
+//                        for (Map.Entry<Enchantment, Integer> entry : first.getEnchantments().entrySet()) {
+//                            if (!entry.getKey().equals(Enchantment.BINDING_CURSE) && !entry.getKey().equals(Enchantment.VANISHING_CURSE)) {
+//                                enchants.add(new EnchantmentValue(entry.getKey(), entry.getValue()));
+//                            }
+//                        }
+//                    }
+//                    if (second != null) {
+//                        for (Map.Entry<Enchantment, Integer> entry : second.getEnchantments().entrySet()) {
+//                            if (!entry.getKey().equals(Enchantment.BINDING_CURSE) && !entry.getKey().equals(Enchantment.VANISHING_CURSE)) {
+//                                enchants.add(new EnchantmentValue(entry.getKey(), entry.getValue()));
+//                            }
+//                        }
+//                    }
+//                    if (enchants.size() == 0) return;
+//                    // Calculate the sum
+//                    try {
+//                        int sum = 0;
+//                        for (EnchantmentValue value : enchants) {
+//                            String enchantName = value.getEnchantment().getKey().getKey().toUpperCase(Locale.ENGLISH);
+//                            if (containsEnchant(enchantName)) {
+//                                sum += GrindstoneEnchant.valueOf(enchantName).getLevel(value.getLevel());
+//                            }
+//                        }
+//                        int average = (sum + (int) Math.ceil(((double) sum) / 2)) / 2; // Get the average experience that would drop
+//                        int added = (int) Math.round(average * (getValue(Ability.DISENCHANTER, playerData) / 100));
+//                        World world = location.getWorld();
+//                        if (world != null) {
+//                            world.spawn(location, ExperienceOrb.class).setExperience(added);
+//                        }
+//                    } catch (IllegalArgumentException ignored) {}
+//                }
+//            }
         }
     }
 
@@ -155,7 +156,8 @@ public class ForgingAbilities extends AbilityProvider implements Listener {
                 if (playerData == null) return;
                 if (playerData.getAbilityLevel(Ability.ANVIL_MASTER) > 0) {
                     int maxCost = (int) Math.round(getValue(Ability.ANVIL_MASTER, playerData));
-                    anvil.setMaximumRepairCost(maxCost);
+//                    anvil.setMaximumRepairCost(maxCost);//andan
+                    anvil.setRepairCost(maxCost);
                 }
             }
         }

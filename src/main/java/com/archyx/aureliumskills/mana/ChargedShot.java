@@ -49,7 +49,7 @@ public class ChargedShot implements ManaAbility {
         double damagePercent = manaConsumed * plugin.getManaAbilityManager().getValue(MAbility.CHARGED_SHOT, playerData);
         if (plugin.getManaAbilityManager().getOptionAsBooleanElseTrue(MAbility.CHARGED_SHOT, "enable_sound")) {
             if (XMaterial.isNewVersion()) {
-                player.playSound(player.getLocation(), Sound.ENTITY_EVOKER_CAST_SPELL, 0.5f, 1);
+                player.playSound(player.getLocation(), Sound.valueOf("ENTITY_EVOKER_CAST_SPELL"), 0.5f, 1);
             } else {
                 player.playSound(player.getLocation(), "entity.evocation_illager.cast_spell", 0.5f, 1);
             }

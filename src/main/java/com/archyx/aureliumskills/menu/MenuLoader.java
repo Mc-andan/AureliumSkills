@@ -165,7 +165,7 @@ public class MenuLoader {
                                             int data = Integer.parseInt(value);
                                             ItemMeta meta = item.getItemMeta();
                                             if (meta != null) {
-                                                meta.setCustomModelData(data);
+//                                                meta.setCustomModelData(data);//andan
                                                 item.setItemMeta(meta);
                                             }
                                         }
